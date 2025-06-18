@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'reset-password.dart';
+import 'signup.dart';
 import '../buttons/global_button.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   bool _obscurePassword = true;
 
   @override
@@ -40,12 +41,12 @@ class _SignupScreenState extends State<SignupScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Create Account',
+              'Login',
               style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             const Text(
-              'Please fill in the details below to create your account.',
+              'Please enter your credentials to log in.',
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
             const SizedBox(height: 40),
@@ -81,23 +82,18 @@ class _SignupScreenState extends State<SignupScreen> {
             SizedBox(
               width: double.infinity,
               child: CustomButton(
-                text: "Go to Reset Password",
+                text: "Login",
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ResetPasswordScreen(),
-                    ),
-                  );
+                  // Add your login logic here
                 },
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'Forgot Login Detail? ',
+                  'Forgot your password? ',
                   style: TextStyle(fontSize: 14, color: Colors.grey),
                 ),
                 GestureDetector(
@@ -120,20 +116,26 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  "Already have an account? ",
+                  "Don't have an account? ",
                   style: TextStyle(fontSize: 14, color: Colors.grey),
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pop();
+                    // Navigate to SignupScreen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SignupScreen(),
+                      ),
+                    );
                   },
                   child: const Text(
-                    "Login",
+                    "Sign up",
                     style: TextStyle(
                       fontSize: 14,
                       color: Color(0xFF1677FF),
@@ -149,3 +151,5 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 }
+
+// Make sure to import or define SignupScreen in your project.

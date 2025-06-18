@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screen/signup.dart'; // Import your Signup screen
+import 'screen/login.dart'; // Import your Signup screen
 
 void main() {
   runApp(const MyApp());
@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SignupScreen(),
+                          builder: (context) => const LoginScreen(),
                         ),
                       );
                     },
